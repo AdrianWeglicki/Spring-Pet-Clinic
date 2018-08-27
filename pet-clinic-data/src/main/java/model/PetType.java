@@ -1,4 +1,4 @@
-package com.adrianv.petclinic.model;
+package model;
 
 public class PetType {
 
