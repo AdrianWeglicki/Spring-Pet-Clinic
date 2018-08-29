@@ -1,4 +1,4 @@
-package model;
+package com.adrianv.petclinic.model;
 
 import java.time.LocalDate;
 
