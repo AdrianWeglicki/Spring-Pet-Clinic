@@ -1,11 +1,11 @@
 package com.adrianv.petclinic.services.map;
 
 import com.adrianv.petclinic.model.Vet;
-import com.adrianv.petclinic.services.CrudService;
+import com.adrianv.petclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudService<Vet,Long> {
+public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
