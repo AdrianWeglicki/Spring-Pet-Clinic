@@ -1,9 +1,9 @@
-package org.adrianv.petclinic;
+package com.adrianv.petclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = { "org.adrianv" })
 public class PetClinicApplication {
 
     public static void main(String[] args) {

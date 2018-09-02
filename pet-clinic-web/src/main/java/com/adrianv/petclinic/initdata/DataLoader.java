@@ -1,11 +1,9 @@
-package org.adrianv.petclinic.initdata;
+package com.adrianv.petclinic.initdata;
 
 import com.adrianv.petclinic.model.Owner;
 import com.adrianv.petclinic.model.Vet;
 import com.adrianv.petclinic.services.OwnerService;
 import com.adrianv.petclinic.services.VetService;
-import com.adrianv.petclinic.services.map.OwnerServiceMap;
-import com.adrianv.petclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +13,11 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader(){
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
-    }
 
+    public DataLoader (OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
+    }
     @Override
     public void run(String... args) throws Exception {
 
