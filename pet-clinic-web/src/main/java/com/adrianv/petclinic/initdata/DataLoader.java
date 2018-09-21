@@ -1,10 +1,7 @@
 package com.adrianv.petclinic.initdata;
 
 import com.adrianv.petclinic.model.*;
-import com.adrianv.petclinic.services.OwnerService;
-import com.adrianv.petclinic.services.PetTypeService;
-import com.adrianv.petclinic.services.SpecialityService;
-import com.adrianv.petclinic.services.VetService;
+import com.adrianv.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -86,6 +85,14 @@ public class DataLoader implements CommandLineRunner {
         fionaCat.setBirthDate(LocalDate.now());
         fionaCat.setName("Just Cat");
         owner2.getPets().add(fionaCat);
+
+        ownerService.save(owner2);
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionaCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners....");
 

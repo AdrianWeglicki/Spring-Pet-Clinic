@@ -2,9 +2,11 @@ package com.adrianv.petclinic.services.map;
 
 import com.adrianv.petclinic.model.Visit;
 import com.adrianv.petclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
